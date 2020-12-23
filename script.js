@@ -18,15 +18,19 @@ $(document).ready(function () {
     // Next Question button.
     var nextQuestionBtn = $("#nextQuestionBtn");
   
-    //  Set integer of question = to 1.
+  
     var i = 0;
-  
+    var currentIndex = -1;
+    var correctAnswer;
     var x = 0;
-  
+    
+    // How long will the timer be.
     var seconds = questions.length * 6;
   
+    // Timer
     var timer;
   
+    // Submit Button on High Scores page
     var submitInitialsBtn = $("#submitInitialsBtn");
   
     // Webpage Behavior
@@ -69,50 +73,50 @@ $(document).ready(function () {
       highScoreSection.addClass("hidden");
       scoreContainer.addClass("hidden");
       seconds = questions.length * 6; //reset timer
-      i = 0;
+      Questions();
       setTimer();
-      var something = function (param) {
-        console.log(param);
-      };
-      var currentQuestion = questions[i];
-      $("#questionNumber").text("Question " + " " + (i + 1));
-      $("#question").text(currentQuestion.title);
-      $("#nextQuestionBtn").text("Next Question");
-      // put choices on the page
-      for (x = 0; x < currentQuestion.choices.length; x++) {
-        var currentChoice = currentQuestion.choices[x];
-  
-        //#region old code
-        //   var checkbox =
-        //     "<li class='list-group-item'><input class='form-check-input' type='radio' name='exampleRadios'" +
-        //     "onclick='checkAnswer('" + currentQuestion.choices[x] +"')'/>" +
-        //     "<label class='form-check-label' for='exampleRadios1'>" + currentQuestion.choices[x] + "</label></li>";
-        //var li = "<li>" + currentQuestion.choices[x] +"</li>";
-        //checkAnswer('${currentQuestion.choices[x]}');
-        //#endregion
-  
-        // List choice item
-        var checkbox = $.parseHTML(`<li class="list-group-item"><input class="form-check-input" type="radio" name="exampleRadios" />
-        <label class="form-check-label" for="exampleRadios1">
-          ${currentChoice}
-        </label></li>`);
-  
-        //Add click listener to list choice item
-        //Each click will call checkAnswer to see if the choice is correct
-        checkbox[0].addEventListener("click", function () {
-          checkAnswer(currentChoice);
-        });
-  
-        $(".choicesList").append(checkbox[0]);
-      }
+      
     });
+
+function Questions(){
+  currentIndex++;
+  var currentQuestion = questions[currentIndex].title; // Questions
+  var currentChoices = questions[currentIndex].choices;
+  correctAnswer = questions[currentIndex].answer;
+  $("#questionNumber").text("Question " + " " + (i + 1));
+  $("#question").text(currentQuestion);
+  $("#nextQuestionBtn").text("Next Question");
   
-    function checkAnswer(selection) {
-      //if selection === correction answer -> do something
-      //if selection is wrong answer > do something else
-      console.log(selection);
+  // put choices on the page
+  for (x = 0; x < currentChoices.length; x++) {
+    var choicesPrint = $("<li>" + currentChoices[x] + "</li>");
+    $("#userChoices").append(choicesPrint);
+    console.log(currentChoices);
+    console.log(choicesPrint);
+  
+  }
+}
+
+$("li").click(isItRight());
+    function isItRight(event) {
+      event.preventDefault();
+      if (choicesPrint = correctAnswer) {
+        $(".feedback").text("Correct!") 
+         
+      }
+      else{
+        $(".feedback").text("Wrong...")
+
+      }
+
+      
     }
-  
+
+
+
+
+
+
     // Timer
     // Starting the timer function
     function setTimer() {
