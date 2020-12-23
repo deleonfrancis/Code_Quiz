@@ -1,80 +1,150 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Quizme</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="./styles.css">
-</head>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
 
   <body>
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark p-3">
-        <a class="navbar-brand active" id="logoLink"  href="#">Quizme</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link text-secondary" href="#" id="viewHighScoresLink">High Score</a>
-            <a class="nav-item nav-link text-secondary" href="#" id="viewStudyLink">Study</a>
-          </div>
+      <a class="navbar-brand active" id="logoLink" href="#">Quizme</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarNavAltMarkup"
+      >
+        <div class="navbar-nav">
+          <a
+            class="nav-item nav-link text-secondary"
+            href="#"
+            id="viewHighScoresLink"
+            >High Score</a
+          >
+          <a
+            class="nav-item nav-link text-secondary"
+            href="#"
+            id="viewStudyLink"
+            >Study</a
+          >
         </div>
-      </nav>
+      </div>
+    </nav>
 
     <!-- Main Section  -->
     <section class="mx-auto bg-dark curve-div">
-      
       <!-- Homepage, Start Quiz -->
       <div id="homePage" class="">
-        <h3 class="text-white">
-            JavaScript Quiz
-        </h3>
-        <p class="text-secondary">Test your knowledge on JavaScript. Press start button to begin...</p>
-        <button type="button" class="btn btn-lg btn-outline-success pl-4 pr-4 startButton"><i class="fas fa-play pr-3"></i>Start</button>
+        <h3 class="text-white">JavaScript Quiz</h3>
+        <p class="text-secondary">
+          Test your knowledge on JavaScript. Press start button to begin...
+        </p>
+        <button
+          type="button"
+          class="btn btn-lg btn-outline-success pl-4 pr-4 startButton"
+        >
+          <i class="fas fa-play pr-3"></i>Start
+        </button>
       </div>
 
       <!-- Quiz, and Timer -->
       <main id="quizSection" class="hidden">
         <!-- Timer -->
-        <div class="p-5 bg-secondary text-white rounded-circle" id="timer">
-        </div>
+        <div class="bg-secondary rounded-circle" id="timer"></div>
         <!-- Quiz -->
-        <div class="mt-5 p-5 bg-secondary">
-          <div class="card bg-secondary"> 
+        <div class="card text-center mt-5">
+          <div class="card-header">
             <h3 id="questionNumber">Question 1</h3>
-            <h6 id="question"> 
-              this is the qu estion.
-            </h6> 
-            <button>Question 1</button>
-            <button>Question 2</button>
-            <button>Question 3</button>
-            <button>Question 4</button>
           </div>
-          <div>
-            <button id="nextQuestionBtn">Next Question</button>
+          <div class="card-body">
+            <h6 id="question">
+              <!-- This is where the question goes. -->
+            </h6>
+            <ol class="list-group choicesList text-left"></ol>
+          </div>
+          <div class="card-footer text-muted feedback">
+            <!-- Feedback -->
           </div>
         </div>
       </main>
 
+      <!-- Display Score and Get Name -->
+
+      <div class="scoreContainer m-auto w-75 hidden">
+        <div id="initialsArray">
+          <div class="card">
+            <div class="card-header">
+              Your time has expired. Thanks for playing!
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Your score is <span id="scoreNumber"></span>.
+              </p>
+              <form id="initials-form" method="POST">
+                <label for="initials-text">Enter initials:</label>
+                <input
+                  type="text"
+                  placeholder=""
+                  name="initials-text"
+                  id="initials-text"
+                />
+              </form>
+              <button
+                id="submitInitialsBtn"
+                value="submit"
+                class="btn btn-secondary"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- High Scores Section with local storage-->
       <div class="card text-center border-0 hidden" id="highScoreSection">
-        <div class="card-header font-weight-bold">
-          High Scores
-        </div>
+        <div class="card-header font-weight-bold">High Scores</div>
         <div class="card-body bg-dark text-white">
           <!-- High Scores list -->
           <form>
@@ -82,81 +152,115 @@
           </form>
           <!-- Buttons to clear high score or play again -->
           <button id="clear" class="btn btn-outline-danger">Clear</button>
-          <button type="button" class="btn btn-outline-success startButton">Again</button>
+          <button
+            type="button"
+            class="btn btn-outline-success startButton pr-3 pl-3"
+          >
+            Play
+          </button>
         </div>
-        <div class="card-footer text-muted">
-            Thanks for playing!
-        </div>
+        <div class="card-footer text-muted">Thanks for playing!</div>
       </div>
-    
+
       <!-- Study Section -->
       <div class="container hidden" id="studySection">
         <h2 class="text-secondary">JavaScript</h2>
-        <p class="text-white" >Here are the questions and answers for your JavaScript quiz.</p>
+        <p class="text-white">
+          Here are the questions and answers for your JavaScript quiz.
+        </p>
         <table class="table">
-          <thead class="bg-white" >
+          <thead class="bg-white">
             <tr>
               <th>Questions</th>
               <th>Answers</th>
             </tr>
           </thead>
-            <tbody>
-              <tr class="table theme-bg">
-                <td>Where is the correct place to insert a JavaScript?</td>
-                <td>The Body Section</td>
-              </tr>      
-              <tr class="table-secondary">
-                <td>What is the correct syntax for referring to an external script called "xxx.js"?</td>
-                <td> src = "xxx.js"</td>
-              </tr>
-              <tr class="table theme-bg">
-                <td>How do you write Hello World in an alert box?</td>
-                <td>alert("Hello World");</td>
-              </tr>
-              <tr class="table-secondary">
-                <td>How do you create a function in JavaScript?</td>
-                <td>function myFunction(){}</td>
-              </tr>      
-              <tr class="table theme-bg">
-                <td>How do you call a function named myFunction?</td>
-                <td>myFunction();</td>
-              </tr>
-              <tr class="table-secondary">
-                <td>What is the correct syntax to print a page using JavaScript?</td>
-                <td>window.print()</td>
-              </tr>
-              <tr class="table theme-bg">
-                <td>What is the function of Array object that sorts the elements of an array?</td>
-                <td>sort()</td>
-              </tr>      
-              <tr class="table-secondary">
-                <td>Javascript is which type of language</td>
-                <td>Interpreted</td>
-              </tr>
-              <tr class="table theme-bg">
-                <td>Which of the following is not a valid JavaScript variable name?</td>
-                <td>2names</td>
-              </tr>
-              <tr class="table-secondary">
-                <td>Using _______ statement is how you test for a specific condition</td>
-                <td>If</td>
-              </tr>    
+          <tbody>
+            <tr class="table theme-bg">
+              <td>Where is the correct place to insert a JavaScript?</td>
+              <td>The Body Section</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>
+                What is the correct syntax for referring to an external script
+                called "xxx.js"?
+              </td>
+              <td>src = "xxx.js"</td>
+            </tr>
+            <tr class="table theme-bg">
+              <td>How do you write Hello World in an alert box?</td>
+              <td>alert("Hello World");</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>How do you create a function in JavaScript?</td>
+              <td>function myFunction(){}</td>
+            </tr>
+            <tr class="table theme-bg">
+              <td>How do you call a function named myFunction?</td>
+              <td>myFunction();</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>
+                What is the correct syntax to print a page using JavaScript?
+              </td>
+              <td>window.print()</td>
+            </tr>
+            <tr class="table theme-bg">
+              <td>
+                What is the function of Array object that sorts the elements of
+                an array?
+              </td>
+              <td>sort()</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>Javascript is which type of language</td>
+              <td>Interpreted</td>
+            </tr>
+            <tr class="table theme-bg">
+              <td>
+                Which of the following is not a valid JavaScript variable name?
+              </td>
+              <td>2names</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>
+                Using _______ statement is how you test for a specific condition
+              </td>
+              <td>If</td>
+            </tr>
           </tbody>
         </table>
         <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-lg btn-outline-success pl-4 pr-4 startButton"><i class="fas fa-play pr-3"></i>Start</button>
+          <button
+            type="button"
+            class="btn btn-lg btn-outline-success pl-4 pr-4 startButton"
+          >
+            <i class="fas fa-play pr-3"></i>Start
+          </button>
         </div>
       </div>
     </section>
 
-  
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- My JavaScript links -->
     <script src="./questions.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
+

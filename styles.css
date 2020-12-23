@@ -27,3 +27,16 @@ section{
 .hidden {
     display: none;
     }
+
+#timer{
+    text-align: center;
+    color: red;
+    font-size: 3rem;
+    font-weight: bold;
+    width: 20%;
+    padding: 3%;
+}
+
+.feedback{
+    padding: 5%;
+}
